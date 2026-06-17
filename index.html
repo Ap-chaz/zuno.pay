@@ -3,22 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZUNO Waitlist</title>
+<title>ZUNO — Secure Escrow for Online Trading | Waitlist</title>
+<meta name="description" content="ZUNO is the secure escrow platform for safe online buying and selling. Join the waitlist for early access.">
+<meta name="theme-color" content="#050816">
 
-<link rel="icon" href="assets/zuno.png" type="image/png>
+<link rel="icon" href="assets/zuno.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-    <div class="logo-section">
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-       <img class="logo" src="assets/zuno.png" alt="ZUNO logo">
-       <img class="logo" src="assets/logo.png" alt="ZUNO logo">
-    </div>
+<header>
+    <a class="brand" href="index.html#home" aria-label="ZUNO home">
+        <img class="logo-icon" src="assets/zuno.png" alt="">
+        <img class="logo-word" src="assets/logo.png" alt="ZUNO">
+    </a>
 
     <nav class="nav-links" id="navLinks">
         <a href="#home">Home</a>
@@ -28,23 +30,24 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </nav>
 
     <div class="right-controls">
-    <div class="secure-badge">
-        <span class="secure-badge-icon">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 10.5V8a5 5 0 0 1 10 0v2.5" stroke="#1a1106" stroke-width="2.2" stroke-linecap="round"/>
-                <rect x="5" y="10.5" width="14" height="10" rx="2.5" fill="#1a1106"/>
-                <circle cx="12" cy="15.3" r="1.4" fill="#f6c54b"/>
-            </svg>
-        </span>
-        Secure by Escrow
-    </div>
+        <div class="secure-badge">
+            <span class="secure-badge-icon" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 10.5V8a5 5 0 0 1 10 0v2.5" stroke="#1a1106" stroke-width="2.2" stroke-linecap="round"/>
+                    <rect x="5" y="10.5" width="14" height="10" rx="2.5" fill="#1a1106"/>
+                    <circle cx="12" cy="15.3" r="1.4" fill="#f6c54b"/>
+                </svg>
+            </span>
+            <span class="secure-badge-text">Secure by Escrow</span>
+        </div>
 
-    <div class="menu-toggle" id="menuToggle">
-        ☰
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+        </button>
     </div>
-</div>
-    
 </header>
+
+<main id="main-content">
 
 <section class="hero" id="home">
 
@@ -52,9 +55,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         <span class="badge">COMING SOON</span>
 
         <h1>
-            Trade with <br>
-            Confidence. <br>
-            <span>Escrow</span> has your back.
+            Trade with Confidence.<br>
+            <span class="accent">Escrow</span> has your back.
         </h1>
 
         <p>
@@ -64,67 +66,67 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         <div class="waitlist-card">
 
-            <div class="tabs">
-                <button class="active">📧 Email</button>
-                <button>📱 Phone</button>
+            <div class="tabs" role="tablist" aria-label="Choose how to join the waitlist">
+                <button type="button" class="active" data-mode="email" role="tab" aria-selected="true">📧 Email</button>
+                <button type="button" data-mode="phone" role="tab" aria-selected="false">📱 Phone</button>
             </div>
 
-            <input type="email" placeholder="Enter your email address">
+            <form data-waitlist-form novalidate>
+                <label class="sr-only" for="hero-email">Email address</label>
+                <input id="hero-email" type="email" placeholder="Enter your email address" autocomplete="email" required>
 
-            <button class="join-btn">
-                Join Waitlist →
-            </button>
+                <button type="submit" class="join-btn">
+                    Join Waitlist →
+                </button>
+
+                <p class="form-feedback" role="status" aria-live="polite"></p>
+            </form>
 
             <small>No spam. Just early access.</small>
 
         </div>
 
         <div class="platforms">
-
-    <span class="coming">
-        Coming soon to
-    </span>
-
-    <i class="fa-brands fa-android"></i>
-
-    <div class="divider"></div>
-
-    <i class="fa-brands fa-apple"></i>
-
-    </div>
+            <span class="coming">Coming soon to</span>
+            <i class="fa-brands fa-android" aria-hidden="true"></i>
+            <span class="sr-only">Android</span>
+            <div class="divider"></div>
+            <i class="fa-brands fa-apple" aria-hidden="true"></i>
+            <span class="sr-only">iOS</span>
+        </div>
 
     </div>
 
     <div class="hero-image">
-        <img src="assets/phone.png" alt="Zuno App">
+        <img src="assets/phone.png" alt="ZUNO app dashboard showing funds protected in escrow">
     </div>
 
 </section>
 
 <section class="features" id="why-zuno">
 
-    <h3>WHY CHOOSE ZUNO?</h3>
+    <span class="eyebrow-center">WHY CHOOSE ZUNO?</span>
     <h2>Built for Safety. Designed for Trust.</h2>
 
     <div class="cards">
 
         <div class="card">
-            <h4>🛡️ Secure Escrow</h4>
+            <h3>🛡️ Secure Escrow</h3>
             <p>Your money stays protected until delivery.</p>
         </div>
 
         <div class="card">
-            <h4>🔒 Fraud Protection</h4>
+            <h3>🔒 Fraud Protection</h3>
             <p>Real-time scam monitoring.</p>
         </div>
 
         <div class="card">
-            <h4>💳 Safe Payments</h4>
+            <h3>💳 Safe Payments</h3>
             <p>Secure payment methods you can trust.</p>
         </div>
 
         <div class="card">
-            <h4>👥 Trust & Transparency</h4>
+            <h3>👥 Trust &amp; Transparency</h3>
             <p>Verified users and clear tracking.</p>
         </div>
 
@@ -134,26 +136,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <section class="how-it-works" id="how-it-works">
 
-    <h3>HOW IT WORKS</h3>
+    <span class="eyebrow-center">HOW IT WORKS</span>
     <h2>Simple. Secure. Smart.</h2>
 
     <div class="steps">
 
         <div class="step">
-            <div class="number">1</div>
-            <h4>Buyer Pays</h4>
+            <div class="number" aria-hidden="true">1</div>
+            <h3>Buyer Pays</h3>
             <p>Funds are locked in escrow.</p>
         </div>
 
         <div class="step">
-            <div class="number">2</div>
-            <h4>Funds Held Safely</h4>
+            <div class="number" aria-hidden="true">2</div>
+            <h3>Funds Held Safely</h3>
             <p>ZUNO protects the transaction.</p>
         </div>
 
         <div class="step">
-            <div class="number">3</div>
-            <h4>Seller Delivers</h4>
+            <div class="number" aria-hidden="true">3</div>
+            <h3>Seller Delivers</h3>
             <p>Funds released after confirmation.</p>
         </div>
 
@@ -172,45 +174,45 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         and be the first to experience ZUNO.
     </p>
 
-    <div class="cta-form">
-        <input type="email" placeholder="Enter your email address">
-        <button>Get Early Access →</button>
-    </div>
+    <form class="cta-form" data-waitlist-form novalidate>
+        <label class="sr-only" for="cta-email">Email address</label>
+        <input id="cta-email" type="email" placeholder="Enter your email address" autocomplete="email" required>
+        <button type="submit">Get Early Access →</button>
+    </form>
+    <p class="form-feedback" role="status" aria-live="polite"></p>
 
 </section>
 
-  <footer class="footer">
-    <div class="footer-container">
+</main>
+
+<footer class="footer">
+    <div class="footer-top">
 
         <div class="footer-brand">
-  <img src="assets/zuno.png" class="footer-icon" alt="ZUNO">
-  <span style="font-size:12px; color:rgba(255,255,255,0.5);">
-    escrow platform
-  </span>
-</div>
+            <img src="assets/zuno.png" class="footer-icon" alt="ZUNO">
+            <span class="footer-tagline">escrow platform</span>
+        </div>
 
-            <!-- LINKS (UNCHANGED STYLE SYSTEM) -->
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="#">Contact</a>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="#home">Home</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="footer-social">
+            <a href="#" aria-label="ZUNO on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="ZUNO on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+            <a href="#" aria-label="ZUNO on X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+        </div>
+
     </div>
 
-    <!-- SOCIAL (NEW but same styling behavior as links) -->
-    <div class="footer-links social-links">
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+    <div class="footer-bottom">
+        <p>© 2026 ZUNO Escrow. All rights reserved.</p>
     </div>
+</footer>
 
-  </div>
-
-  <div class="footer-copy">
-    © 2026 ZUNO Escrow. All rights reserved.
-  </div>
-  </footer>
-
-  
+<script src="js/main.js" defer></script>
 </body>
 </html>
