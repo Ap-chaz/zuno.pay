@@ -410,8 +410,7 @@ max-width:350px;
 
 .footer-container{
   display:flex;
-  justify-content:space-between;
-  align-items:flex-start; /* IMPORTANT FIX */
+  justify-content: space-between;
   gap:40px;
   max-width:1200px;
   margin:auto;
