@@ -175,7 +175,6 @@ header.is-scrolled{
 }
 
 .brand .logo-icon{ height: 36px; }
-.brand .logo-word{ height: 22px; }
 
 .nav-links{
   display: flex;
@@ -866,7 +865,6 @@ main{
   }
 
   .brand .logo-icon{ height: 30px; }
-  .brand .logo-word{ height: 18px; }
 
   .secure-badge{
     padding: 6px;
