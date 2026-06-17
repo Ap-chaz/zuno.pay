@@ -116,8 +116,8 @@ header{
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:24px 5%;
-gap:20px;
+padding:24px 2%;
+gap:25px;
 position: fixed;
 top: 0px;
 left: 0px;
