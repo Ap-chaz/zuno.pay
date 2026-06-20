@@ -461,14 +461,21 @@ input::placeholder{
 }
 
 /* Centered, single-column hero variant used on legal pages */
+.hero--solo{
+  padding: 40px var(--side-pad) 10px;
+}
+
 .hero--solo .hero-text{
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
 }
-.hero--solo .hero p{
+
+.hero--solo .hero-text p{
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  max-width: 620px;
 }
 
 /* =========================================================
