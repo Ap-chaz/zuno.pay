@@ -464,6 +464,9 @@ input::placeholder{
 .hero--solo{
   padding: 0px var(--side-pad) 10px;
 }
+.hero--solo + .features{
+  padding-top: var(--space-5);
+} 
 
 .hero--solo .hero-text{
   max-width: 720px;
@@ -892,6 +895,10 @@ main{
     font-size: clamp(2rem, 1.5rem + 4vw, 2.6rem);
   }
 
+   .hero--solo + .features{
+  padding-top: var(--space-4);
+   } 
+   
   .waitlist-card{
     padding: var(--space-3);
   }
