@@ -524,11 +524,11 @@ main{
    ========================================================= */
 .cards{
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--space-3);
   max-width: var(--container);
   margin: 0 auto;
-}
+} 
 
 .cards--single{
   grid-template-columns: minmax(0, 1fr);
@@ -566,8 +566,7 @@ main{
    ========================================================= */
 .steps{
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 320px));
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--space-3);
   max-width: var(--container);
   margin: 0 auto;
@@ -748,15 +747,6 @@ main{
 }
 
 /* =========================================================
-   Responsive — large tablet / small desktop (≤1024px)
-   ========================================================= */
-@media (max-width: 1024px){
-  .cards{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* =========================================================
    Responsive — tablet & mobile nav (≤900px)
    ========================================================= */
 @media (max-width: 900px){
@@ -839,20 +829,12 @@ main{
   .hero-image{
     max-width: 320px;
   }
-
-  .steps{
-    grid-template-columns: minmax(0, 360px);
-  }
 }
 
 /* =========================================================
    Responsive — mobile (≤640px)
    ========================================================= */
 @media (max-width: 640px){
-  .cards{
-    grid-template-columns: minmax(0, 1fr);
-  }
-
   .cta-form{
     flex-direction: column;
   }
