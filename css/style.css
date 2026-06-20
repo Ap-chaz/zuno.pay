@@ -462,7 +462,7 @@ input::placeholder{
 
 /* Centered, single-column hero variant used on legal pages */
 .hero--solo{
-  padding: 40px var(--side-pad) 10px;
+  padding: 0px var(--side-pad) 10px;
 }
 
 .hero--solo .hero-text{
