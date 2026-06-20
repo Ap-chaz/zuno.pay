@@ -476,6 +476,12 @@ input::placeholder{
   margin-right: auto;
   text-align: center;
   max-width: 620px;
+  margin-bottom: 0;
+}
+
+.hero--solo .hero-text h1{
+  margin-bottom: var(--space-3);
+  
 }
 
 /* =========================================================
