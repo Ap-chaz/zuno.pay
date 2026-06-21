@@ -125,3 +125,31 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 })();
+
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+  link.addEventListener('click',e=>{
+
+    e.preventDefault();
+
+    const target=document.querySelector(
+      link.getAttribute('href')
+    );
+
+    if(target){
+
+      const offset = 90;
+
+      const top =
+        target.getBoundingClientRect().top +
+        window.pageYOffset -
+        offset;
+
+      window.scrollTo({
+        top,
+        behavior:'smooth'
+      });
+
+    }
+
+  });
+});
