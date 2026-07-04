@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waitlist — ZUNO Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="assets/zuno.png?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="admin-topbar">
+  <a class="brand" href="dashboard.html" aria-label="ZUNO admin home">
+    <img class="logo-icon" src="assets/zuno.png" alt="ZUNO">
+    <span class="badge admin-badge">ADMIN</span>
+  </a>
+
+  <div class="admin-topbar-right">
+    <span class="badge dev-badge" id="devBadge" hidden>DEV MODE</span>
+    <span class="admin-user" id="adminEmail"></span>
+    <button class="admin-btn admin-btn--ghost" id="signOutBtn" type="button">Sign out</button>
+  </div>
+</header>
+
+<main id="main-content" class="admin-main">
+
+  <div class="admin-heading">
+    <div>
+      <h1>Waitlist</h1>
+      <p class="admin-subtitle">Everyone who's signed up for early access.</p>
+    </div>
+    <button class="admin-btn admin-btn--gold" id="exportBtn" type="button">Export CSV</button>
+  </div>
+
+  <div class="stat-cards" id="statCards">
+    <div class="stat-card">
+      <span class="stat-label">Total signups</span>
+      <span class="stat-value" id="statTotal">—</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">New today</span>
+      <span class="stat-value" id="statToday">—</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">New this week</span>
+      <span class="stat-value" id="statWeek">—</span>
+    </div>
+  </div>
+
+  <div class="admin-toolbar">
+    <label class="sr-only" for="searchInput">Search by name or email</label>
+    <input id="searchInput" type="search" placeholder="Search by name or email" autocomplete="off">
+  </div>
+
+  <div class="table-wrap">
+    <table class="admin-table" id="waitlistTable">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Joined</th>
+          <th scope="col"><span class="sr-only">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody id="waitlistBody">
+        <!-- rows injected by admin-dashboard.js -->
+      </tbody>
+    </table>
+
+    <div class="table-state" id="tableLoading">
+      <span class="spinner" aria-hidden="true"></span>
+      <span>Loading signups...</span>
+    </div>
+
+    <div class="table-state" id="tableEmpty" hidden>
+      <p class="table-state-title">No signups yet</p>
+      <p class="table-state-body">New waitlist entries will show up here as people join.</p>
+    </div>
+
+    <div class="table-state" id="tableError" hidden>
+      <p class="table-state-title">Couldn't load the waitlist</p>
+      <p class="table-state-body" id="tableErrorMessage">Something went wrong. Try again.</p>
+      <button class="admin-btn admin-btn--ghost" id="retryBtn" type="button">Retry</button>
+    </div>
+  </div>
+
+  <div class="admin-pagination" id="pagination" hidden>
+    <button class="admin-btn admin-btn--ghost" id="prevPageBtn" type="button">← Previous</button>
+    <span id="pageStatus" class="admin-page-status"></span>
+    <button class="admin-btn admin-btn--ghost" id="nextPageBtn" type="button">Next →</button>
+  </div>
+
+</main>
+
+<!-- Delete confirmation -->
+<div class="modal-backdrop" id="deleteModal" hidden>
+  <div class="modal" role="alertdialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+    <p class="modal-title" id="deleteModalTitle">Remove this signup?</p>
+    <p class="modal-body" id="deleteModalBody"></p>
+    <div class="modal-actions">
+      <button class="admin-btn admin-btn--ghost" id="cancelDeleteBtn" type="button">Cancel</button>
+      <button class="admin-btn admin-btn--danger" id="confirmDeleteBtn" type="button">Remove</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
