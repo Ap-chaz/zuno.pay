@@ -7,8 +7,8 @@
   "use strict";
 
   /* ---------- Mobile navigation ---------- */
-  var toggle = document.getElementById("menuToggle");
-  var nav = document.getElementById("navLinks");
+  let toggle = document.getElementById("menuToggle");
+  let nav = document.getElementById("navLinks");
 
   function closeNav() {
     if (!nav || !toggle) return;
@@ -24,7 +24,7 @@
 
   if (toggle && nav) {
     toggle.addEventListener("click", function () {
-      var isOpen = nav.classList.contains("active");
+      let isOpen = nav.classList.contains("active");
       if (isOpen) {
         closeNav();
       } else {
@@ -55,70 +55,74 @@
     });
   }
 
-  /* ---------- Waitlist tabs (Email / Phone) ---------- */
-  document.querySelectorAll(".tabs").forEach(function (tabGroup) {
-    var buttons = tabGroup.querySelectorAll("button");
-    var card = tabGroup.closest(".waitlist-card");
-    var input = card ? card.querySelector("input") : null;
-
-    buttons.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        buttons.forEach(function (b) {
-          b.classList.remove("active");
-          b.setAttribute("aria-selected", "false");
-        });
-        btn.classList.add("active");
-        btn.setAttribute("aria-selected", "true");
-
-        if (!input) return;
-        var mode = btn.getAttribute("data-mode");
-        if (mode === "phone") {
-          input.type = "tel";
-          input.placeholder = "Enter your phone number";
-          input.setAttribute("inputmode", "tel");
-        } else {
-          input.type = "email";
-          input.placeholder = "Enter your email address";
-          input.removeAttribute("inputmode");
-        }
-      });
-    });
-  });
-
   /* ---------- Waitlist / contact forms ----------
      Front-end only placeholder: shows inline confirmation.
      Wire this up to a real signup endpoint when one exists. */
   document.querySelectorAll("form[data-waitlist-form]").forEach(function (form) {
-    var feedback = form.querySelector(".form-feedback");
-    var button = form.querySelector("button");
+    let feedback = form.querySelector(".form-feedback");
+    let button = form.querySelector("button");
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var input = form.querySelector("input");
-      if (input && !input.checkValidity()) {
-        input.reportValidity();
+
+      let inputs = form.querySelectorAll("input");
+      let isValid = true;
+      inputs.forEach(function (inp) {
+        if (!inp.checkValidity()) {
+          isValid = false;
+        }
+      });
+      if (!isValid) {
+        // Report on the first invalid field so the browser focuses it.
+        for (let i = 0; i < inputs.length; i++) {
+          if (!inputs[i].checkValidity()) {
+            inputs[i].reportValidity();
+            break;
+          }
+        }
         return;
       }
-      if (feedback) {
-        feedback.textContent = "You're on the list! We'll be in touch.";
-      }
+
+      let data = {};
+      inputs.forEach(function (inp) {
+        data[inp.name || inp.id] = inp.value.trim();
+      });
+      // Front-end only placeholder: log the captured signup.
+      // Wire this up to a real signup endpoint when one exists.
+      console.log("Waitlist signup:", data);
+
       if (button) {
-        var original = button.textContent;
-        button.disabled = true;
-        button.textContent = "Joined ✓";
-        setTimeout(function () {
-          button.disabled = false;
-          button.textContent = original;
-        }, 3000);
-      }
-      form.reset();
+  let original = button.textContent;
+  button.disabled = true;
+  button.textContent = "Processing...";
+
+  setTimeout(function () {
+    button.textContent = "Reserved ✓";
+
+    // Show the message at the same time
+    if (feedback) {
+      feedback.textContent = "You're on the list! We'll be in touch.";
+    }
+
+    setTimeout(function () {
+      button.disabled = false;
+      button.textContent = original;
+
+      // Optional: clear the message after a few seconds
+      feedback.textContent = "";
+    }, 3000);
+
+  }, 1200);
+}
+
+form.reset();
     });
   });
 
   /* ---------- Header scroll state ---------- */
-  var header = document.querySelector("header");
+  let header = document.querySelector("header");
   if (header) {
-    var onScroll = function () {
+    let onScroll = function () {
       header.classList.toggle("is-scrolled", window.scrollY > 8);
     };
     onScroll();
